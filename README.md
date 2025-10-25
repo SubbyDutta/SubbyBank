@@ -1,4 +1,4 @@
-deployed url- ### https://subbyfrontend.onrender.com ###
+deployed url-  https://subbyfrontend.onrender.com 
 A small fullly functinoal  banking application which is authenticated with Jwt, Razorpay Integration,ml models for loan eligibility check  &amp; potential fraud detection ,Ai chatbot integration and much more 
 # 💳  AI-Powered Banking System  
 
