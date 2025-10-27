@@ -1,101 +1,125 @@
-deployed url-  https://subbyfrontend.onrender.com 
-A small fullly functinoal  banking application which is authenticated with Jwt, Razorpay Integration,ml models for loan eligibility check  &amp; potential fraud detection ,Ai chatbot integration and much more 
-# 💳  AI-Powered Banking System  
+# 💳 AI-Powered Banking System  
 
-### 🚀 Made with Spring Boot + React + Python + MySQL  
+### 🚀 Made with Spring Boot + React + Python + PostgreSQL  
 
-SmartBank is a **full-stack AI-integrated digital banking system** that provides seamless banking operations for users and powerful administrative controls for the bank.  
-It combines **Spring Boot**, **Python ML models**, **React**, and **MySQL** to deliver a secure, intelligent, and modern banking experience.  
+**SubbyBank** is a **full-stack AI-integrated digital banking system** that combines **Spring Boot**, **React**, **Python ML models**, and **PostgreSQL** to deliver a secure, intelligent, and scalable banking experience.  
+Users can create accounts, perform transactions, apply for loans, and interact with an AI chatbot — while admins manage operations, detect fraud, and maintain complete control.  
+
+---
+
+## 🌐 Live Demo  
+🔗 **Frontend:** (https://subbyfrontend.onrender.com)
 
 ---
 
 ## 🧠 Overview  
 
 ### 🔹 Technologies Used  
-| Stack | Technology |
+
+| Layer | Technology |
 |--------|-------------|
-| **Frontend** | React.js, Axios, Tailwind CSS |
-| **Backend (Core)** | Spring Boot (Java) |
-| **Backend (AI/ML)** | Python (Flask/FastAPI for model services) |
-| **Database** | MySQL |
+| **Frontend** | React.js, Axios, **Bootstrap 5** |
+| **Backend (Core)** | Spring Boot (Java, REST APIs, JWT Security) |
+| **Backend (AI/ML)** | Python (Flask/FastAPI microservices) |
+| **Database** | **PostgreSQL** (Production), MySQL (Local/Test) |
 | **Payment Gateway** | Razorpay |
-| **ML Libraries** | scikit-learn, XGBoost, imbalanced-learn, NumPy, Pandas |
+| **Machine Learning** | scikit-learn, XGBoost, imbalanced-learn, NumPy, Pandas |
 | **Containerization** | Docker |
+| **Deployment** | Render / Railway / Docker environments |
+
+---
+
+## 🔐 Security & Authentication  
+
+✅ **JWT-Based Authentication**  
+- Secure user login and signup using JSON Web Tokens  
+- Tokens are validated in every API call for secure access  
+
+✅ **Spring Security Configuration**  
+- Prevents unauthorized domains or websites from accessing backend APIs  
+- Cross-Origin Resource Sharing (CORS) configured only for verified frontend URLs  
+- Passwords encrypted before storage  
+
+✅ **Role-Based Authorization**  
+- Separate access control for **Users** and **Admins**  
+- Unauthorized users are blocked from accessing admin endpoints  
 
 ---
 
 ## 👤 User Features  
 
-✅ **Authentication System**  
-- Secure **User Signup / Login**  
-- JWT-based authentication  
-- Password encryption  
+✅ **Account Management**  
+- Create a bank account instantly after signup  
+- Login securely using JWT  
+- Add money to your account using **Razorpay Payment Gateway**  
 
-✅ **Banking Operations**  
-- **Create a Bank Account** instantly after signup  
-- **Add Money** to account using **Razorpay** payment gateway  
-- **Check Transaction History** with filters and sorting  
-- **Transfer Money**:
-  - Within the same bank  
-  - To external bank accounts  
+✅ **Transactions**  
+- Transfer money to internal or external accounts  
+- View full transaction history with filters and sorting  
 
-✅ **Loan Services**  
-- **Apply for a Loan**  
-- **AI-based Loan Eligibility Check** using a trained **Python model**  
-- **View Loan Status**  
-- **Repay Loan** directly from account balance  
+✅ **Loans**  
+- Apply for loans anytime  
+- **AI-based Loan Eligibility Check** powered by Python ML  
+- Repay loans directly from account balance  
 
 ✅ **AI Chatbot Assistant** 🤖  
-- Integrated **AI Chatbot** to help users with:  
-  - Account-related queries  
-  - Loan and repayment help  
+- Smart AI chatbot helps users with:  
+  - Account balance queries  
+  - Loan guidance and repayment info  
   - Fraud warnings  
-  - General assistance  
+  - General banking assistance  
 
 ---
 
 ## 🧑‍💼 Admin Features  
 
 ✅ **Admin Dashboard**  
-- View and manage **all users and transactions**  
-- Edit / Delete **User Accounts**  
-- Edit / Delete **Bank Accounts**  
-
-✅ **Loan Management**  
-- Approve or Reject Loan Applications  
-- Monitor **Loan Repayments** by ID  
-
-✅ **Transaction Management**  
-- View all transactions  
-- Filter or **search transactions by ID**  
-- View repayment details by ID  
+- View and manage **all users, accounts, and transactions**  
+- **Delete or update user accounts**  
+- **Edit or delete bank accounts**  
+- Monitor ongoing and repaid loans  
 
 ✅ **Fraud Detection System** ⚠️  
-- Uses a **Python-based XGBoost ML model** to detect **potential fraudulent transactions** in real time  
-- Flag suspicious users and accounts  
+- Uses a **Python XGBoost model** to detect **potentially fraudulent transactions**  
+- Fraud detection based on:  
+  - Transaction amount  
+  - Time of transaction  
+  - Foreign or risky country flag  
+  - Abnormal user spending patterns  
+- Automatically flags suspicious activity in the dashboard  
 
 ✅ **Security Actions**  
-- **Block Bank Accounts** — once blocked, the user **cannot send or receive money**  
-- **Delete / Update** accounts or loans as required  
+- Block fraudulent or inactive user accounts  
+- Delete, update, or modify user and loan records securely  
+- Admin-only routes protected by JWT and role validation  
 
 ---
 
-## 🧠 Machine Learning Integration (Python)  
+## 🧠 Machine Learning Integration  
 
-### 1️⃣ **Loan Eligibility Prediction Model**
-- Trained on synthetic + real-like financial data  
-- Predicts if a user qualifies for a loan based on salary, credit history, and existing debts  
+### 1️⃣ Loan Eligibility Prediction Model  
+- Trained on realistic banking and financial data  
+- Predicts user’s eligibility based on income, debt ratio, and credit history  
+- Returns **approval probability** with high accuracy  
 
-### 2️⃣ **Fraud Detection Model**
-- Built using **XGBoost** and **SMOTE** for handling class imbalance  
-- Features used:  
-  - Transaction amount  
-  - Time of transaction (hour)  
-  - Country risk factor  
-  - Foreign transaction flag  
-  - Historical spending pattern  
-- Automatically flags suspicious activity to the admin dashboard  
+### 2️⃣ Fraud Detection Model  
+- Built using **XGBoost + SMOTE** for handling class imbalance  
+- Detects anomalies and marks suspicious transactions in real-time  
+- Features used include transaction value, time, location, and user pattern  
 
 ---
+
+## 🧩 System Architecture  
+
+**Frontend (React + Bootstrap)** →  
+**Spring Boot Backend (JWT-secured APIs)** →  
+**Python AI Microservices (Flask/FastAPI)** →  
+**PostgreSQL Database**
+
+All components communicate through secure REST endpoints, and unauthorized origins are automatically blocked via security configuration.
+
+---
+
+  
 
 
